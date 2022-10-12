@@ -98,7 +98,7 @@ function rules() {
   rule.classList.toggle("hidden");
 }
 
-// let socket = io();
+let socket = io();
 
 // let firstPlayer = false;
 // let roomID;
