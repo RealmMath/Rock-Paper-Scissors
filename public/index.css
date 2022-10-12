@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scissors-gradient: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paper-gradient: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock-gradient: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+  --dark-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+  --radial-gradient: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+* {
+  user-select: none;
+}
+
+html {
+  background: var(--radial-gradient);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.main {
+  min-height: 50vh;
+}
+
+.countdown::after {
+  content: "";
+  text-transform: uppercase;
+  display: block;
+  width: fit-content;
+  height: 16px;
+  color: white;
+  margin: auto auto 5rem;
+  animation: scaling 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+@keyframes scaling {
+  0% {
+    content: "Rock";
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  6.25%,
+  31.25%,
+  56.25%,
+  81.25%,
+  100% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  15%,
+  40%,
+  65%,
+  90% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  31.25% {
+    content: "paper";
+  }
+
+  50% {
+    content: "scissors";
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  75% {
+    content: "play";
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+.header-outline {
+  border-color: var(--header-outline);
+}
+
+.bg-triangle {
+  width: 60%;
+  height: 60%;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.paper {
+  background: var(--paper-gradient);
+}
+
+.scissors {
+  background: var(--scissors-gradient);
+}
+
+.rock {
+  background: var(--rock-gradient);
+}
+
+.actions {
+  background-color: rgb(228 228 225);
+}
+
+.dull {
+  background-color: hsl(220deg 47% 18%);
+}
+
+.second-layout {
+  display: none;
+}
+
+.re-play:hover {
+  color: hsl(349, 71%, 52%);
+}
+
+.attribution {
+  text-align: center;
+  color: white;
+}
+
+.attribution a {
+  color: hsl(39, 89%, 49%);
+}
+
+@media only screen and (min-width: 1024px) {
+  .second-layout .picks {
+    scale: 2;
+    translate: 0 10vh;
+  }
+
+  .rule-btn {
+    left: 95% !important;
+  }
+}

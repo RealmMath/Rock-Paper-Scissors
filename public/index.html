@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link href="./styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="flex flex-col px-6 mt-8 lg:mt-16">
+  <header>
+    <nav
+      class="max-w-lg lg:max-w-xl mx-auto border-4 border-solid header-outline rounded-md p-4 flex items-center justify-between">
+      <img class="h-14" src="./assets/logo.svg" alt="Rock, Paper and Scissor" />
+      <div class="text-center px-4 py-2 grid rounded-md bg-white">
+        <h1>SCORE</h1>
+        <span class="score text-4xl font-bold">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main relative mt-12">
+    <div class="relative first-layout">
+      <div class="absolute bg-triangle max-w-sm">
+        <img class="w-full h-full" src="./assets/bg-triangle.svg" alt="Background Triangle" />
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 relative mx-auto w-full max-w-sm">
+        <div>
+          <div class="paper picks w-32 h-32 rounded-full flex items-center justify-center cursor-pointer">
+            <div class="actions rounded-full w-24 h-24 flex items-center justify-center">
+              <img class="w-10" src="./assets/icon-paper.svg" alt="Rock" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row-start-2 col-start-3">
+          <div class="rock picks w-32 h-32 rounded-full flex items-center justify-center cursor-pointer">
+            <div class="actions rounded-full w-24 h-24 flex items-center justify-center">
+              <img class="w-10" src="./assets/icon-rock.svg" alt="Rock" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-start-5">
+          <div class="scissors picks w-32 h-32 rounded-full flex items-center justify-center cursor-pointer">
+            <div class="actions rounded-full w-24 h-24 flex items-center justify-center">
+              <img class="w-12" src="./assets/icon-scissors.svg" alt="Rock" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="relative second-layout">
+      <div class="lg:flex lg:flex-col-reverse">
+        <div id="duel" class="grid grid-cols-3 gap-4 relative mx-auto w-full max-w-sm lg:max-w-4xl lg:gap-28"></div>
+
+        <!-- Text Content  -->
+        <div
+          class="grid gap-4 relative mx-auto w-full max-w-sm lg:max-w-4xl uppercase text-white mt-8 lg:mt-0 lg:mb-16">
+          <div class="col-start-1 col-end-3 text-center lg:text-start">You picked</div>
+          <div class="col-start-5 text-end">The house picked</div>
+        </div>
+      </div>
+
+      <div class="uppercase flex flex-col items-center mt-16 lg:-translate-y-16 lg:mt-0">
+        <div class="win-lose text-white text-6xl my-4">You Lose</div>
+        <div class="re-play py-3 mt-4 px-16 bg-white text-lg rounded-md cursor-pointer">Play Again
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main class="rules hidden h-0 w-0" id="rules">
+    <div class="hidden z-10 lg:block absolute left-0 top-0 w-full h-full bg-black bg-opacity-50"></div>
+    <div
+      class="absolute z-20 w-full h-full left-0 top-0 bg-white flex flex-col items-center lg:rounded-xl lg:left-2/4 lg:-translate-x-2/4 lg:-translate-y-2/4 lg:h-2/4 lg:px-6 lg:pt-6 lg:top-2/4 lg:max-w-sm">
+      <div class="lg:flex justify-between mt-auto lg:mt-0 w-full">
+        <p class="text-3xl font-bold uppercase text-center">Rules</p>
+        <img onclick="rules()" class="cursor-pointer my-auto hidden lg:block" src="./assets/icon-close.svg"
+          alt="Close Rules" />
+      </div>
+      <img class="my-auto" src="./assets/image-rules.svg" alt="Rock, Paper and Scissor Rules" />
+      <img onclick="rules()" class="cursor-pointer my-auto lg:hidden" src="./assets/icon-close.svg" alt="Close Rules" />
+    </div>
+  </main>
+
+  <footer class="attribution relative pt-16 pb-4 mt-16">
+    <div onclick="rules()"
+      class="cursor-pointer w-fit relative -top-12 left-2/4 -translate-x-2/4 rule-btn lg:-translate-x-full border-2 border-solid header-outline rounded-md px-8 py-1 text-center text-white uppercase">
+      Rules
+    </div>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+</body>
+<!-- <script src="socket.io/socket.io.js"></script> -->
+<script src="./main.js"></script>
+
+</html>
